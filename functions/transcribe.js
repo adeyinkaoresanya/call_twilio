@@ -1,9 +1,16 @@
 const sendTextMessage= require('./sendTextMessage')
-const transcribe= async (req, res) => {
+const dotenv = require("dotenv")
+dotenv.config()
 
+const TWILIO_WHATSAPP_NUMBER = process.env.TWILIO_WHATSAPP_NUMBER;
+const YOUR_LOCAL_NUMBER= process.env.YOUR_LOCAL_NUMBER;
+
+const transcribe= async (req, res) => {
+  
   const text = req.body.TranscriptionText;
+  
   // Send the transcribed text to the user's WhatsApp number
-  sendTextMessage(sendTextMessage(text, USER_WHATSAPP_NUMBER));
+  sendTextMessage(text, TWILIO_WHATSAPP_NUMBER, YOUR_LOCAL_NUMBER);
 }
 
 module.exports= transcribe;

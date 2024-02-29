@@ -1,13 +1,12 @@
-const twilioClient = require('./config');
+const twilioClient = require('../config');
 
-const sendTextMessage = (text, to) => {
+const sendTextMessage = (text, TWILIO_WHATSAPP_NUMBER, YOUR_LOCAL_NUMBER ) => {
   twilioClient.messages.create({
     body: text,
     from: 'whatsapp:' + TWILIO_WHATSAPP_NUMBER,
-    to: 'whatsapp:' + to,
+    to: 'whatsapp:' + YOUR_LOCAL_NUMBER,
   });
 };
 
-sendTextMessage(text, USER_WHATSAPP_NUMBER);
 
 module.exports= sendTextMessage

@@ -7,7 +7,7 @@ const app = express();
 
 /** middlewares */
 app.use(express.json());
-app.disable('x-powered-by'); // less hackers know about our stack
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
